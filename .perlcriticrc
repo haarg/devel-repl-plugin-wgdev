@@ -1,0 +1,42 @@
+severity    = 1
+theme       = core || strictersubs || pulp || more
+
+[-BuiltinFunctions::ProhibitReverseSortBlock]
+[-ClassHierarchies::ProhibitExplicitISA]
+[-Editor::RequireEmacsFileVariables]
+[-ErrorHandling::RequireCarping]
+[-ErrorHandling::RequireUseOfExceptions]
+[-InputOutput::ProhibitExplicitStdin]
+[-Miscellanea::RequireRcsKeywords]
+[-Subroutines::ProhibitCallsToUnexportedSubs]
+[-Subroutines::RequireArgUnpacking]
+[-ValuesAndExpressions::ProhibitConstantPragma]
+[-Variables::ProhibitPunctuationVars]
+[-Variables::RequireInitializationForLocalVars]
+
+# disabled until they are configurable enough to handle exceptions
+[-ControlStructures::ProhibitPostfixControls]
+[-Modules::RequireExplicitInclusion]
+[-Subroutines::RequireFinalReturn]
+
+[CodeLayout::RequireTidyCode]
+perltidyrc = .perltidyrc
+
+[Documentation::PodSpelling]
+stop_words_file = .stop_words.txt
+
+[Documentation::RequirePodSections]
+lib_sections = NAME | SYNOPSIS | DESCRIPTION | AUTHOR | LICENSE
+
+[InputOutput::RequireCheckedSyscalls]
+functions = opendir read readline readdir closedir
+
+[TestingAndDebugging::ProhibitNoWarnings]
+allow_with_category_restriction = 1
+
+[ValuesAndExpressions::ProhibitMagicNumbers]
+allowed_values = -1 0 1 2 24 60 365 777 7777
+
+[Variables::ProhibitPackageVars]
+packages = File::Find Data::Dumper Config
+

@@ -1,0 +1,36 @@
+Devel::REPL::Plugin::WGDev is Copyright (c) 2009, Graham Knop.
+
+DESCRIPTION
+
+INSTALLATION
+    To install this module, run the following commands:
+
+        perl Build.PL
+        ./Build
+        ./Build test
+        ./Build install
+
+    Alternatively, have the CPAN client install it:
+
+        cpan .
+
+
+SUPPORT AND DOCUMENTATION
+    After installing, you can find documentation using using the perldoc command:
+
+        perldoc Devel::REPL::Plugin::WGDev
+
+    Source code is hosted on GitHub at:
+        http://github.com/haarg/devel-repl-plugin-wgdev
+
+    Bug reports and feature requests can be posted on the issue tracker:
+        http://github.com/haarg/devel-repl-plugin-wgdev/issues
+
+CONTRIBUTORS
+    Graham Knop <haarg@haarg.org>
+
+LICENSE INFORMATION
+    This library is free software; you can redistribute it and/or
+    modify it under the same terms as Perl 5.10.0. For more details,
+    see the full text of the licenses in the directory LICENSES.
+
