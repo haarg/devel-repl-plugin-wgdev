@@ -16,7 +16,7 @@ my $build = Module::Build->new(
         'perl'             => '5.8.8',
         'Devel::REPL'      => 0,
         'Tie::Simple'      => '1.03',
-        'WGDev'            => '0.5.0',
+        'WGDev'            => '0.4.0',
     },
 );
 $build->create_build_script;
