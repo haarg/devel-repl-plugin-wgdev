@@ -23,3 +23,7 @@ for my $library (@modules) {
     is $warnings, '', "$library compiles without warnings";
 }
 
+if ( ! Test::More->builder->is_passing ) {
+    BAIL_OUT 'Stopping tests due to compile error';
+}
+
