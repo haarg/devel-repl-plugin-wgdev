@@ -5,7 +5,6 @@ use Test::More;
 
 my @modules = qw(
     Devel::REPL::Plugin::WGDev
-    Tie::Scalar::Dynamic
 );
 
 plan tests => 2 * ( scalar @modules );

@@ -8,7 +8,7 @@ our $VERSION = '0.0.1';
 use Devel::REPL::Plugin;
 use namespace::clean -except => [ 'meta' ];
 
-use Tie::Scalar::Dynamic;
+use Tie::Simple;
 
 has 'wgd' => (
     is => 'ro',
@@ -39,8 +39,17 @@ sub AFTER_PLUGIN {
     );
 
     my $context = $self->lexical_environment->get_context('_');
-    tie $context->{'$wgd'},     'Tie::Scalar::Dynamic', sub { $self->wgd };
-    tie $context->{'$session'}, 'Tie::Scalar::Dynamic', sub { $self->wgd->session };
+    tie $context->{'$wgd'},     'Tie::Simple', undef,
+        FETCH => sub { $self->wgd },
+        STORE => sub { $self->wgd },
+    ;
+    tie $context->{'$session'}, 'Tie::Simple', undef,
+        FETCH => sub { $self->wgd->session },
+        STORE => sub {
+            $self->wgd->close_session;
+            $self->wgd->close_config;
+        },
+    ;
 }
 
 sub command_wgd {

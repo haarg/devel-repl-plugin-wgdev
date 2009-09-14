@@ -8,12 +8,15 @@ my $build = Module::Build->new(
     sign               => 1,
     meta_merge         => {
         resources => {
+            bugtracker => 'http://github.com/haarg/devel-repl-plugin-wgdev/issues',
+            repository => 'http://github.com/haarg/devel-repl-plugin-wgdev/tree',
         },
     },
     requires => {
         'perl'             => '5.8.8',
-        'WGDev'            => '0.5.0',
         'Devel::REPL'      => 0,
+        'Tie::Simple'      => '1.03',
+        'WGDev'            => '0.5.0',
     },
 );
 $build->create_build_script;
