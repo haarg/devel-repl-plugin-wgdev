@@ -9,14 +9,13 @@ use Devel::REPL::Plugin;
 use namespace::clean -except => [ 'meta' ];
 
 use Tie::Simple;
+use WGDev;
+use WGDev::Command;
 
 has 'wgd' => (
     is => 'ro',
     isa => 'WGDev',
-    lazy => 1,
     default => sub {
-        require WGDev;
-        require WGDev::Command;
         my $wgd = WGDev->new;
         WGDev::Command->guess_webgui_paths(wgd => $wgd);
         return $wgd;
@@ -61,7 +60,6 @@ sub command_wgd {
     my @args = Text::ParseWords::shellwords($text);
 
     # TODO: have a better API for this to keep the wgd object around
-    require WGDev::Command;
     WGDev::Command->run();
     return '';
 }
